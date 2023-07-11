@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Complete JavaScript Course</title>
+  </head>
+  <body>
+    <textarea name="txtarea" rows="2" cols="50"></textarea>
+    <button>Get Emails</button>
+    <textarea name="txtarea2" rows="2" cols="50"></textarea>
+    <script>
+        const txt1 = document.querySelector("textarea[name='txtarea']");
+        const txt2 = document.querySelector("textarea[name='txtarea2']");
+        const getEmails = document.querySelector("button");
+
+        getEmails.addEventListener("click", lookUp);
+
+        function lookUp() {
+            const rawTxt = txt1.value;
+            const eData = rawTxt.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+            const holder = [];
+            
+            for (let x = 0; x < eData.length; x++) {
+                if (holder.indexOf(eData[x]) == -1) {
+                    holder.push(eData[x]);
+                }
+            }
+            txt2.value = holder.join(',');
+        }
+    </script>
+  </body>
+</html>

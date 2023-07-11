@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Js Chapter 9: Project</title>
+  </head>
+  <body>
+    <div class="output">
+      <h1>Hello</h1>
+      <div>Test</div>
+      <ul>
+        <li id="one">One</li>
+        <li class="red">Two</li>
+      </ul>
+      <div>Test</div>
+    </div>
+
+    <script>
+        const output = document.querySelector(".output");
+        const mainList = document.querySelector("ul");
+        mainList.id = "mainList";
+        console.log(mainList);
+        const eles = document.querySelectorAll("div");
+        console.log(eles);
+        for(let i = 0; i < eles.length; i++){
+            if(i%2 === 0){
+                eles[i].style.color = "red";
+            } else {
+                eles[i].style.color = "blue";
+            }
+            eles[i].id = 'id' + (i + 1);
+        }
+    </script>
+  </body>
+</html>

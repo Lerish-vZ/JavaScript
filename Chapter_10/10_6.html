@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 10.6: Using QuerySelectorAll()</title>
+</head>
+<body>
+    <div>
+        <h1 class="div1" id="heading1"> Starting </h1>
+        <p class="div1" id="par1"> In this exercise we will be using the 
+            querySelectorAll() method to see how it works. You have 3 different
+        things you can query:</p>
+        <ul class="div1" id="list">
+            <li> Classes (.) </li>
+            <li> Id's (#) </li>
+            <li> Tag names </li>
+        </ul>
+    </div>
+
+    <script>
+        const arrQuery = document.querySelectorAll(".div1");
+        console.log(arrQuery);
+        arrQuery.forEach( (element) =>{
+            console.log(element);
+        } );
+    </script>
+</body>
+</html>

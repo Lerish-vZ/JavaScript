@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 10.4: Accessing elements by class name </title>
+</head>
+<body>
+    <h1 id="Heading1" class="body"><a> New Website </a></h1>
+    <p id="Intro" class="body"> This is a new website that contains text. </p>
+    <div id="Part1" class="body"> The start is here. The websites info will be here. </div>
+
+    <script> 
+        const elem = document.getElementsByClassName("body");
+        console.log(elem);
+        console.log(elem[0]);
+        console.log(elem[1]);
+        console.log(elem[2]);
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 13: Exercise 13.1 </title>
+</head>
+<body>  
+    <script>
+        "use strict";
+
+        function greet(fullName) {
+            let s = "Welcome, ";
+            fullName.forEach((el) => {
+                s += el + " ";
+            });
+            console.log(s);
+        }
+
+        function doIt(str, callback) {
+            let fullName = str.split(" ");
+
+            callback(fullName);
+        }
+
+        doIt("Pete Jake Mario Louie", greet);
+    </script>
+</body> 
+</html>

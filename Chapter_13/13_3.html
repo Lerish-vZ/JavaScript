@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 13: Exercise 13.3</title>
+</head>
+<body>
+    <script>
+        let count = 0;
+
+        function outputTime(val) {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    count++;
+                    resolve(`x value ${val} | counter: ${count}`);
+                }, 1000)
+            });
+        }
+
+        async function aCall(val) {
+            console.log(`ready ${val} | counter: ${count}`); //This will log first x4 
+            const res = await outputTime(val); //Then outputTime gets called and executed
+            console.log(res);
+        }
+
+        for (let x = 1; x < 4; x++) {
+            aCall(x);
+        }
+        
+    </script>
+</body>
+</html>

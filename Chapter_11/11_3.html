@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 11.3</title>
+</head>
+<body>
+    
+    <script>
+        function message(mess, event){
+            console.log(mess);
+            console.log(event);
+        }
+
+        document.addEventListener("DOMContentLoaded", (e) => {
+            message("Document Ready", e);
+        });
+        
+        window.onload = (e) => {
+            message("Window Ready", e);
+        };
+
+    </script>
+
+</body>
+</html>

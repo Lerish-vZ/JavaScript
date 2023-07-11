@@ -1,0 +1,6 @@
+let arrOption = ["Rock", "Paper", "Scissors"];
+let NumP = prompt("Type 1 for Rock, 2 for Paper and 3 for Scissors.");
+let randNumC = Math.floor(Math.random() * (arrOption.length + 1));
+let response2 = `You selected: ${arrOption[(Number(NumP)-1)]} Computer: ${arrOption[(randNumC-1)]}.`;
+alert(response2);
+console.log(response2);

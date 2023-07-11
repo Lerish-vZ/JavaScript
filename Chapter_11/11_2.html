@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 11.2</title>
+</head>
+<body>
+    <h1>I can change colors.</h1>
+    <p> All you have to do is <a><b>Select your color!</b></a></p>
+        <div>Red</div>
+        <div>Orange</div>
+        <div>Yellow</div>
+        <div>Green</div>
+        <div>Blue</div>
+        <div>Purple</div>
+        <div>Pink</div>
+
+    <script>
+       const divs = document.querySelectorAll("div");
+       divs.forEach((el) => {
+            el.addEventListener("click", () => {
+                document.body.style.backgroundColor = el.textContent;
+            });
+       })
+    </script>
+</body>
+</html>
