@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      window.onload = init;
+      function init() {
+        navigator.geolocation.getCurrentPosition(showGeoPosition);
+      }
+      function showGeoPosition(data) {
+        console.dir(data);
+      }
+    </script>
+  </body>
+</html>
