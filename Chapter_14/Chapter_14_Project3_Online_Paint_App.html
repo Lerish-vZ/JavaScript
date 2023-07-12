@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas HTML5</title>
+    <style>
+      #canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <div>
+      <button class="save">Save</button>
+      <button class="clear">clear</button>
+      <span>Color: <input type="color" value="#ffff00" id="penColor" /></span>
+      <span
+        >Width: <input type="range" min="1" max="20" value="10" id="penWidth"
+      /></span>
+    </div>
+    <div class="output"></div>
+    <script>
+        const canvas = document.querySelector("#canvas");
+        const ctx = canvas.getContext("2d");
+        const btnSave = document.querySelector(".save");
+        const btnClear = document.querySelector(".clear");
+        const bgC = document.querySelector("#penColor");
+        const penWidth = document.querySelector("#penWidth");
+        const output = document.querySelector(".output");
+
+        let pos = {
+            draw: false,
+            x: 0,
+            y: 0,
+            lastX: 0,
+            lastY: 0
+        };
+
+        canvas.style.border= "1px solid black";
+
+        canvas.addEventListener("mousemove", (e) => {
+            pos.lastX = pos.x;
+            pos.lastY = pos.y;
+
+            pos.x = e.clientX;
+            pos.y = e.clientY;
+            draw();
+        });
+
+        canvas.addEventListener("mousedown", (e) => {
+            pos.draw = true;
+        });
+
+        canvas.addEventListener("mouseup", (e) => {
+            pos.draw = false;
+        });
+
+        canvas.addEventListener("mouseout", (e) => {
+            pos.draw = false;
+        });
+
+        function draw() {
+            if (pos.draw) {
+                ctx.beginPath();
+                ctx.moveTo(pos.lastX, pos.lastY);
+                ctx.lineTo(pos.x, pos.y);
+                ctx.strokeStyle = bgC.value;
+                ctx.lineWidth = penWidth.value;
+                ctx.lineCap = "round";
+                ctx.stroke();
+                ctx.closePath();
+            }
+        }
+
+        btnClear.addEventListener("click", clearCanvas);
+        btnSave.addEventListener("click", saveCanvas);
+        
+        function clearCanvas() {
+            const temp = confirm("Clear and remove the canvas?");
+
+            if (temp) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        }
+
+        function saveCanvas() {
+            const dataURL = canvas.toDataURL();
+            console.log(dataURL);
+            
+            const img = document.createElement("img");
+            output.prepend(img);
+
+            img.setAttribute("scr", dataURL);
+
+            const link = document.createElement("a");
+            output.append(link);
+
+            let fileName = Math.random().toString(16).substr(-8) + ".png";
+
+            link.setAttribute("download", fileName);
+
+            link.href = dataURL;
+
+            link.click();
+            output.removeChild(link);
+        }
+    </script>
+  </body>
+</html>

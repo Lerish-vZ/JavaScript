@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 14: Exercise 14.4</title>
+</head>
+<body>
+    <style>
+        #canvas1 {
+            border: 1px solid black;
+        }
+    </style>
+
+    <canvas id="canvas1" height="640" width="640"></canvas>
+
+    <script>
+        let canvas = document.querySelector("#canvas1");
+        let ctx = canvas.getContext("2d");
+        let str = "Hello World!";
+
+        ctx.font = "55px Consolas";
+        ctx.fillStyle = "blue";
+        ctx.textAlign = "left";
+
+        ctx.fillText(str, 50, 50);
+
+        ctx.font = "20px Calibri bold";
+        ctx.fillStyle = "red";
+
+        for (let i = 0; i < 11; i++) {
+            ctx.fillText(`Counter: ${i}`, 50, (100 + (50 * i)));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 14: Exercise 14.3</title>
+</head>
+<body>
+    <style>
+        #canvas1 {
+            border: 1px solid black;
+        }
+    </style>
+
+    <canvas id="canvas1" width="640" height="640"></canvas>
+
+    <script>
+        let canvas = document.querySelector("#canvas1");
+        let ctx = canvas.getContext("2d");
+
+        ctx.beginPath();
+        ctx.fillStyle = "red";
+        ctx.arc(300, 130, 100, 0, Math.PI * 2); //half would be 320 ... use 300 as start x to be left of middle
+        ctx.fill(); //is head or red circle
+        
+        ctx.beginPath();
+        ctx.fillStyle = "black";
+
+        ctx.arc(250, 120, 20, 0, Math.PI * 2); //left eye
+        ctx.moveTo(370, 120);
+
+        ctx.arc(350, 120, 20, 0, Math.PI * 2); //right eye
+        ctx.moveTo(240, 160);
+
+        ctx.arc(300, 160, 60, 0, Math.PI); //mouth
+
+        ctx.fill();
+        
+        ctx.moveTo(300, 130);
+        ctx.lineTo(300, 150); //nose
+        ctx.stroke(); //?makes the line bold
+
+        ctx.beginPath();
+        ctx.moveTo(300, 230);
+
+        ctx.lineTo(300, 270);//neck
+        ctx.lineTo(400, 270);//right arm
+        ctx.lineTo(200, 270);//left arm
+        ctx.lineTo(300, 270);//go to position to make next
+        ctx.lineTo(300, 350);//body
+        ctx.lineTo(400, 500); //left leg
+
+        ctx.moveTo(300, 350);
+        ctx.lineTo(200, 500); //right leg
+
+        ctx.stroke(); //makes lines darker
+
+        ctx.beginPath();
+        ctx.fillStyle = "blue";
+
+        ctx.moveTo(200, 50);
+
+        ctx.lineTo(400, 50); //bottom line of hat
+        ctx.lineTo(300, 20); //roof of hat and fill
+        ctx.lineTo(200, 50);
+
+        ctx.fill();
+        ctx.stroke();
+    </script>
+</body>
+</html>
